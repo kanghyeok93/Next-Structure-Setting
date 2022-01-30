@@ -108,6 +108,13 @@
   margin-left: 0.5rem;
 }
 
+.Link {
+  margin-top: 1rem;
+}
+.Link:hover {
+  color: tomato;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
