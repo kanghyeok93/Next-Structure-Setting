@@ -21,6 +21,14 @@ const Home: NextPage = () => {
         <Link href="/subject/1">
           <a className={styles.Link}>Go to problem pages</a>
         </Link>
+
+        <Link href="/subject/2">
+          <a className={styles.Link}>Go to problem pages</a>
+        </Link>
+
+        <Link href="/subject/3">
+          <a className={styles.Link}>Go to problem pages</a>
+        </Link>
       </main>
 
       <footer className={styles.footer}>
