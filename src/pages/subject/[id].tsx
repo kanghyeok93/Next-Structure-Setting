@@ -1,9 +1,24 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../core/redux/rootReducer";
+
+import { increment } from "../../core/redux/slices/counterSlice";
 
 const Page = ({ id }: { id: string }) => {
+  const dispatch = useDispatch();
+
+  const value = useSelector((state: RootState) => state.counter.value);
+
+  const handleIncrement = () => {
+    dispatch(increment());
+  };
   return (
     <div>
       <div>Page... {id}</div>
+
+      <div>Store Counter Value {value}</div>
+
+      <button onClick={handleIncrement}>버튼</button>
     </div>
   );
 };
