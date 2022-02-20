@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../core/redux/rootReducer";
 
 import { increment } from "../../core/redux/slices/counterSlice";
+import { wrapper } from "../../core/redux/store";
 
 const Page = ({ id }: { id: string }) => {
   const dispatch = useDispatch();
@@ -25,12 +26,16 @@ const Page = ({ id }: { id: string }) => {
 
 export default Page;
 
-export const getServerSideProps = ({ params }: { params: { id: string } }) => {
-  const { id } = params;
-  console.log("Server Info ===> ", id);
-  return {
-    props: {
-      id,
+// export const getServerSideProps = ({ params }: { params: { id: string } }) => {
+export const getServerSideProps = wrapper.getServerSideProps(
+  (store) =>
+    async ({ params }: any) => {
+      const { id } = params;
+      console.log("Server Info ===> ", id);
+      return {
+        props: {
+          id,
+        },
+      };
     },
-  };
-};
+);
